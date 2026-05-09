@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=ark
+MimeType=application/zip;
+Name=ark
+NoDisplay=true
+Type=Application
