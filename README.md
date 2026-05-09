@@ -8,15 +8,14 @@ Personal dotfiles for my Fedora 44 desktop.
 
 | Component | Choice |
 |---|---|
-| OS | Fedora 44 (Everything minimal) |
+| OS | Fedora 44 (Custom OS) |
 | Compositor | [Niri](https://github.com/YaLTeR/niri) 26.04 (YaLTeR COPR) |
-| Desktop Shell | [Noctalia](https://github.com/noctalia) (bar, launcher, lockscreen, notifications, idle, clipboard, wallpaper) |
+| Desktop Shell | [Noctalia](https://github.com/noctalia) (bar, launcher, lockscreen, notifications, idle, clipboard, static wallpaper) |
 | Greeter | greetd + tuigreet |
 | Shell | fish |
-| Terminal | Ghostty + Alacritty |
-| GPU | NVIDIA + AMD iGPU (PRIME offload) |
+| Terminal | Ghostty |
+| GPU | NVIDIA + AMD iGPU |
 | Display Protocol | Wayland + XWayland satellite |
-| Audio | PipeWire + WirePlumber |
 
 ---
 
@@ -24,13 +23,13 @@ Personal dotfiles for my Fedora 44 desktop.
 
 ### Native (DNF)
 
-- **Browsers:** Firefox
+- **Browser:** Firefox
 - **Files:** Nautilus, Yazi
 - **Communication:** Vesktop, Thunderbird, WhatsApp
-- **Media:** VLC, PhotoQt, Feishin, linux-wallpaperengine
+- **Media:** PhotoQt, Feishin, linux-wallpaperengine
 - **Music server:** Navidrome (running on localhost:4533)
-- **Research:** Zotero, Jamowi
-- **Creative:** GIMP, Natron, MusicBrainz Picard
+- **Research:** Zotero, Jamovi
+- **Creative:** Natron, MusicBrainz Picard
 - **Dev/tools:** Helix, btop, btrfs-assistant, Arduino IDE
 - **P2P:** Nicotine+
 - **Archive:** Ark
@@ -40,8 +39,22 @@ Personal dotfiles for my Fedora 44 desktop.
 
 - Steam + Gamescope + MangoHud
 - Lutris
+- OBS Studio
+- Blender 5.0
+- GIMP 3.2
 - qBittorrent
+- VLC
 - Zoom
+- Feishin
+- Thunderbird
+- MusicBrainz Picard
+- Nicotine+
+- PhotoQt
+- Zotero
+- Jamovi
+- Arduino IDE v2
+- Czkawka
+- CPU-X
 
 ---
 
@@ -49,8 +62,8 @@ Personal dotfiles for my Fedora 44 desktop.
 
 | Layer | Tool/Setting |
 |---|---|
-| Color scheme | Gruvbox (via Noctalia) |
-| Icons | Fluent-dark (fluent-icon-theme) |
+| Color scheme | Faithful wallpaper color  (via Noctalia) |
+| Icons | Fluent-green-dark (fluent-icon-theme) |
 | Cursor | Silksong cursor theme |
 | GTK3 | nwg-look |
 | Qt | qt6ct |
@@ -63,19 +76,18 @@ sudo dnf install fluent-icon-theme
 ```
 Set `Fluent-dark` in nwg-look (GTK) and qt6ct (Qt).
 
-**Fonts:** Fira Code, Fira Sans, Twemoji
+**Fonts:** Fira Code, P052, Twemoji
 
 ---
 
 ## Portals & System Integration
 
 - `xdg-desktop-portal` + `xdg-desktop-portal-gnome` (primary — most compatible with Niri)
-- `XDG_CURRENT_DESKTOP=KDE` set in Niri environment (for portal activation)
 - Polkit kf6 + Noctalia polkit plugin
 - wl-clipboard + cliphist
 - mimeapps.list configured
 
-> Architecture note: gnome-leaning app stack on Niri compositor. Nautilus, gnome portal, GTK apps where available. This is the pragmatic correct choice for Niri in 2026 — gnome portal handles ScreenCast and file pickers. Qt apps themed independently via qt6ct.
+> Architecture note: I went for a Gnome-leaning app stack on Niri compositor. Nautilus, gnome portal, and GTK apps where available since the gnome portal handles ScreenCast and file pickers. Qt apps themed independently via qt6ct.
 
 ---
 
@@ -87,7 +99,7 @@ Set `Fluent-dark` in nwg-look (GTK) and qt6ct (Qt).
 
 ## Boot Optimizations
 
-These changes were made outside `~/` to reduce boot time. Documented here for reference.
+These changes were made outside `~/` to reduce boot time. Documented here for reference. (or incase I forget)
 
 ### Kernel parameters — quiet boot
 
@@ -175,7 +187,7 @@ Expected. The gray is Niri's compositor surface initializing as a backdrop for t
 ## Pending / Future
 
 - [ ] Firefox "Open With" extension for Office Online
-- [ ] Navidrome external access (Tailscale or Cloudflare Tunnel) for partner music sharing
+- [ ] Navidrome external access (Tailscale or Cloudflare Tunnel) for music sharing
 - [ ] Greeter theming (tuigreet is functional but plain)
 - [ ] Noctalia Terra repo GPG key cleanup
 - [ ] Slow shutdown — not yet investigated
