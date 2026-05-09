@@ -1,0 +1,38 @@
+2026/05/09-15:56:17.096 3be26 Reusing MANIFEST /home/lecaseus/.config/vesktop/sessionData/Local Storage/leveldb/MANIFEST-000001
+2026/05/09-15:56:17.103 3be26 Recovering log #64
+2026/05/09-15:56:17.104 3be26 Level-0 table #67: started
+2026/05/09-15:56:17.106 3be26 Level-0 table #67: 42324 bytes OK
+2026/05/09-15:56:17.210 3be26 Delete type=0 #64
+2026/05/09-15:59:17.460 3be1c Level-0 table #70: started
+2026/05/09-15:59:17.463 3be1c Level-0 table #70: 37789 bytes OK
+2026/05/09-15:59:17.465 3be1c Delete type=0 #68
+2026/05/09-15:59:17.465 3be1c Compacting 4@0 + 1@1 files
+2026/05/09-15:59:17.470 3be1c Generated table #71@0: 38 keys, 44724 bytes
+2026/05/09-15:59:17.470 3be1c Compacted 4@0 + 1@1 files => 44724 bytes
+2026/05/09-15:59:17.472 3be1c compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/05/09-15:59:17.472 3be1c Delete type=2 #60
+2026/05/09-15:59:17.472 3be1c Delete type=2 #62
+2026/05/09-15:59:17.472 3be1c Delete type=2 #65
+2026/05/09-15:59:17.472 3be1c Delete type=2 #67
+2026/05/09-15:59:17.472 3be1c Delete type=2 #70
+2026/05/09-16:23:21.709 3be1c Level-0 table #73: started
+2026/05/09-16:23:21.721 3be1c Level-0 table #73: 28188 bytes OK
+2026/05/09-16:23:21.722 3be1c Delete type=0 #69
+2026/05/09-17:08:21.708 3be1c Level-0 table #75: started
+2026/05/09-17:08:21.730 3be1c Level-0 table #75: 23324 bytes OK
+2026/05/09-17:08:21.733 3be1c Delete type=0 #72
+2026/05/09-18:04:17.451 3be1c Level-0 table #77: started
+2026/05/09-18:04:17.463 3be1c Level-0 table #77: 35227 bytes OK
+2026/05/09-18:04:17.465 3be1c Delete type=0 #74
+2026/05/09-19:04:17.449 3be1c Level-0 table #79: started
+2026/05/09-19:04:17.462 3be1c Level-0 table #79: 19376 bytes OK
+2026/05/09-19:04:17.464 3be1c Delete type=0 #76
+2026/05/09-19:04:17.465 3be1c Compacting 4@0 + 1@1 files
+2026/05/09-19:04:17.470 3be1c Generated table #80@0: 40 keys, 44984 bytes
+2026/05/09-19:04:17.470 3be1c Compacted 4@0 + 1@1 files => 44984 bytes
+2026/05/09-19:04:17.471 3be1c compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/05/09-19:04:17.471 3be1c Delete type=2 #71
+2026/05/09-19:04:17.471 3be1c Delete type=2 #73
+2026/05/09-19:04:17.471 3be1c Delete type=2 #75
+2026/05/09-19:04:17.471 3be1c Delete type=2 #77
+2026/05/09-19:04:17.471 3be1c Delete type=2 #79

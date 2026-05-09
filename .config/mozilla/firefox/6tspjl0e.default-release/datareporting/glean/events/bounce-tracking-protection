@@ -1,0 +1,1 @@
+{"timestamp":35043359,"category":"bounce.tracking.protection","name":"purge_action","extra":{"success":"true","is_dry_run":"false","glean_timestamp":"1778271808284","site_host":"jrsoftware.org","bounce_time":"1778233482","require_stateful_bounces":"false"},"execution_counter":16}

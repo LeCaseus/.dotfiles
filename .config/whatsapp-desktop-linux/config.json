@@ -1,0 +1,5 @@
+{
+	"fixes": {
+		"electron-21": true
+	}
+}
