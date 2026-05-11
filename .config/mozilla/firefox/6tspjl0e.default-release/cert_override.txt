@@ -1,3 +1,0 @@
-# PSM Certificate Override Settings file
-# This is a generated file!  Do not edit.
-software.easypc.com.ph:443:	OID.2.16.840.1.101.3.4.2.1	CC:4E:87:03:69:76:48:76:B7:42:DF:7E:17:FB:C6:D7:3B:F2:E5:E6:63:55:87:30:07:35:61:00:6A:21:B9:8A	

@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=WhatsApp
-Exec=/home/lecaseus/whatsapp-desktop-linux/build/linux-unpacked/whatsapp-desktop-linux
-Icon=/home/lecaseus/whatsapp.png
-Type=Application
-Categories=Network;InstantMessaging;
-StartupWMClass=whatsapp-desktop-linux

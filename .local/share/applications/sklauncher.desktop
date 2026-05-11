@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=SKLauncher
-Exec=java -jar /home/lecaseus/SKlauncher-3.2.18.jar
-Icon=/usr/share/icons/Fluent-green/scalable/apps/minecraft-launcher.svg
-Type=Application
-Categories=Game;

@@ -1,9 +1,0 @@
-[ExtractDialog]
-DirHistory[$e]=$HOME/.local/share/fonts/,$HOME/Downloads/
-
-[General]
-LockSidebar=true
-ShowSidebar=true
-
-[MainWindow]
-StatusBar=Disabled
