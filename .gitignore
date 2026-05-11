@@ -1,0 +1,21 @@
+# Ignoring everything by default
+*
+
+# Tracked dirs
+!README.md
+!.gitconfig
+!.gitignore
+!.gtkrc-2.0
+!.config/
+!.local/
+!.local/share/
+!.local/share/applications/
+!.local/share/fonts/
+!.local/share/icons/
+
+# Sensitive .config dirs to be skipped
+.config/mozilla
+.config/vesktop
+.config/whatsapp-desktop-linux
+.config/onedrive
+.config/ngrok
