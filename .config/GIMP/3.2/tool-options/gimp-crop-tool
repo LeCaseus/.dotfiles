@@ -1,7 +1,7 @@
 # GIMP gimp-crop-tool options
 
-(aspect-denominator 288)
-(aspect-numerator 2478)
+(aspect-denominator 1080)
+(aspect-numerator 1920)
 (foreground
     (color "R'G'B'A float" 16 "\0\0\200\77\0\0\200\77\0\0\200\77\0\0\200\77" 0))
 (background
