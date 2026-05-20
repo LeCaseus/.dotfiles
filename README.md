@@ -17,7 +17,8 @@ This is my first completed setup. As of this posting, I am on Fedora 44 (custom 
 | Greeter | greetd + agreety (autologin via initial_session) |
 | File managers | Nautilus |
 | Color scheme | Custom picked via Noctalia's Color Scheme Creator plugin |
-| Icons | Graphite dark rimless |
+| Theme | Graphite dark rimless |
+| Icons | Papirus Dark |
 | Cursor | Silksong |
 | GTK theming | nwg-look |
 | Qt theming | qt6ct |
