@@ -1,10 +1,29 @@
+// ╔═══════════════════════════════════════════════════════╗
+// ║              niri compositor config                   ║
+// ║                 lecaseus@fedora                       ║
+// ╚═══════════════════════════════════════════════════════╝
+
+// ── DISPLAY ─────────────────────────────────────────────
+
 prefer-no-csd
+
+/-output "eDP-1" {
+    mode "1920x1080@120.030"
+    scale 2
+    transform "normal"
+    position x=1280 y=0
+}
+
+// ── ENVIRONMENT ─────────────────────────────────────────
 
 environment {
     XDG_SESSION_TYPE "wayland"
-    QT_QPA_PLATFORMTHEME "qt6ct" // or GTK# whichever you need
+    QT_QPA_PLATFORMTHEME "qt6ct"
     MOZ_ENABLE_WAYLAND "1"
+    __EGL_VENDOR_LIBRARY_FILENAMES "/usr/share/glvnd/egl_vendor.d/50_mesa.json"
 }
+
+// ── INPUT ───────────────────────────────────────────────
 
 input {
     keyboard {
@@ -30,18 +49,15 @@ input {
     focus-follows-mouse max-scroll-amount="0%"
 }
 
-/-output "eDP-1" {
-    mode "1920x1080@120.030"
-    scale 2
-    transform "normal"
-    position x=1280 y=0
-}
+// ── WORKSPACES ──────────────────────────────────────────
 
-workspace "Start" {}
-workspace "Browsing" {}
+// workspace "Start" {}
+// workspace "Browsing" {}
+
+// ── LAYOUT ──────────────────────────────────────────────
 
 layout {
-    gaps 16
+    gaps 10
     center-focused-column "never"
 
     preset-column-widths {
@@ -59,79 +75,102 @@ layout {
     default-column-width { proportion 0.5; }
 
     focus-ring {
+        off
         width 2
-        active-color "#7fc8ff"
-        inactive-color "#505050"
+        active-color "#B03328"
+        inactive-color "#706050"
     }
 
     border {
         off
-        width 2
-        active-color "#ffc87f"
-        inactive-color "#505050"
-        urgent-color "#9b0000"
+        width 4
+        active-color "#DDD0B8"
+        inactive-color "#706050"
+        urgent-color "#89C468"
     }
 
     shadow {
-        softness 30
-        spread 5
-        offset x=0 y=5
-        color "#0007"
+        softness 2
+        spread 0
+        offset x=-1 y=-1
+        color "#DDD0B880"
     }
 
     struts {
     }
 }
 
+// ── BLUR ────────────────────────────────────────────────
+
+blur {
+    passes 2
+    offset 2.0
+    noise 0.01
+    saturation 1.0
+}
+
+// ── STARTUP ─────────────────────────────────────────────
+
 spawn-sh-at-startup "qs -c noctalia-shell"
-// spawn-sh-at-startup "/home/lecaseus/linux-wallpaperengine/build/output/linux-wallpaperengine --screen-root eDP-1 --silent --fps 30 3303387977"
-spawn-sh-at-startup "/usr/libexec/kf6/polkit-kde-authentication-agent-1"
-spawn-sh-at-startup "bash /home/lecaseus/.config/niri/startup.sh"
+// spawn-sh-at-startup "/home/lecaseus/BuiltFromSource/linux-wallpaperengine/build/output/linux-wallpaperengine --screen-root eDP-1 --fps 30 --no-audio-processing --silent 2843660311"
+spawn-at-startup "lxpolkit"
+// spawn-sh-at-startup "bash /home/lecaseus/.config/niri/startup.sh"
+
+// ── ANIMATIONS ──────────────────────────────────────────
+
+animations {
+}
+
+// ── SCREENSHOTS ─────────────────────────────────────────
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// ── CURSOR ──────────────────────────────────────────────
+
+cursor {
+    xcursor-theme "Silksong"
+    xcursor-size 24
+}
+
+// ── HOTKEY OVERLAY ──────────────────────────────────────
 
 hotkey-overlay {
     skip-at-startup
 }
 
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+// ── WINDOW RULES ────────────────────────────────────────
 
-animations {
-}
-
-// Global rules
+// global
 window-rule {
     geometry-corner-radius 16
     clip-to-geometry true
-    opacity 0.85
+    opacity 0.87
     background-effect {
         blur true
         xray false
     }
-    draw-border-with-background false    
+    draw-border-with-background false
 }
 
-window-rule {
+// ghostty workspace pins
+/-window-rule {
     match app-id="com.mitchellh.ghostty" title="fetch"
     open-on-workspace "Start"
 }
-window-rule {
+/-window-rule {
     match app-id="com.mitchellh.ghostty" title="files"
     open-on-workspace "Start"
 }
-window-rule {
+/-window-rule {
     match app-id="com.mitchellh.ghostty" title="matrix"
     open-on-workspace "Start"
 }
-window-rule {
+/-window-rule {
     match app-id="com.mitchellh.ghostty" title="monitor"
     open-on-workspace "Start"
 }
 
-window-rule {
-    match app-id="com.mitchellh.ghostty"
-    opacity 0.67
-}
-
-// Floating Noctalia settings window.
+// noctalia settings panel
 window-rule {
     match app-id="dev.noctalia.Noctalia.Settings"
     open-floating true
@@ -139,23 +178,13 @@ window-rule {
     default-window-height { fixed 920; }
 }
 
+// firefox
 window-rule {
     match title="Firefox"
-    open-on-workspace "Browsing"
     open-maximized true
 }
 
-blur {
-    passes 2
-    offset 4.0
-    noise 0.02
-    saturation 1.0    
-}
-
-debug {
-    // Allows notification actions and window activation from Noctalia.
-    honor-xdg-activation-with-invalid-serial
-}
+// ── LAYER RULES ─────────────────────────────────────────
 
 layer-rule {
     match namespace="^noctalia-overview*"
@@ -163,39 +192,48 @@ layer-rule {
 }
 
 layer-rule {
-  match namespace="^noctalia-(bar-main|notification|dock|panel)$"
-  background-effect {
-    xray false
-  }
+    match namespace="^noctalia-(bar-main|notification|dock|panel)$"
+    background-effect {
+        blur true
+        xray false
+    }
 }
+
+// ── DEBUG ───────────────────────────────────────────────
+
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+
+// ── KEYBINDS ────────────────────────────────────────────
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    // Apps
+    // apps
     Mod+Return hotkey-overlay-title="Terminal: ghostty" { spawn "ghostty"; }
-    Super+L hotkey-overlay-title="Lock Screen" { spawn "swaylock"; }
-    Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
+    Mod+L hotkey-overlay-title="Lock Screen" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+    Mod+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
-    // Noctalia
+    // launcher and session menu
     Mod+Space { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Mod+S { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
 
-    // Media & hardware
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"; }
-    XF86AudioMute allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
-    XF86MonBrightnessUp allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
+    // media & hardware
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
+    XF86AudioMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "brightnessctl set 5%+"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "brightnessctl set 5%-"; }
     XF86AudioPlay allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioStop allow-when-locked=true { spawn-sh "playerctl stop"; }
     XF86AudioPrev allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext allow-when-locked=true { spawn-sh "playerctl next"; }
 
-    // Window management
+    // window management
     Alt+F4 repeat=false { close-window; }
     Mod+Q repeat=false { close-window; }
-    Super+D repeat=false { toggle-overview; }
+    Mod+D repeat=false { toggle-overview; }
     Mod+O repeat=false { toggle-overview; }
     Mod+V { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
@@ -204,52 +242,52 @@ binds {
     Mod+M { maximize-window-to-edges; }
     Mod+W { toggle-column-tabbed-display; }
 
-    // Focus
+    // focus
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
     Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
-    Mod+H     { focus-column-left; }
-    Mod+J     { focus-window-down; }
-    Mod+K     { focus-window-up; }
-    Mod+L     { focus-column-right; }
+    // Mod+H     { focus-column-left; }
+    // Mod+J     { focus-window-down; }
+    // Mod+K     { focus-window-up; }
+    // Mod+L     { focus-column-right; }
 
-    // Move windows
+    // move windows
     Mod+Ctrl+Left  { move-column-left; }
     Mod+Ctrl+Down  { move-window-down; }
     Mod+Ctrl+Up    { move-window-up; }
     Mod+Ctrl+Right { move-column-right; }
-    Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+J     { move-window-down; }
-    Mod+Ctrl+K     { move-window-up; }
-    Mod+Ctrl+L     { move-column-right; }
+    // Mod+Ctrl+H     { move-column-left; }
+    // Mod+Ctrl+J     { move-window-down; }
+    // Mod+Ctrl+K     { move-window-up; }
+    // Mod+Ctrl+L     { move-column-right; }
 
     Mod+Home      { focus-column-first; }
     Mod+End       { focus-column-last; }
     Mod+Ctrl+Home { move-column-to-first; }
     Mod+Ctrl+End  { move-column-to-last; }
 
-    // Monitor focus
+    // monitor focus
     Mod+Shift+Left  { focus-monitor-left; }
     Mod+Shift+Down  { focus-monitor-down; }
     Mod+Shift+Up    { focus-monitor-up; }
     Mod+Shift+Right { focus-monitor-right; }
-    Mod+Shift+H     { focus-monitor-left; }
-    Mod+Shift+J     { focus-monitor-down; }
-    Mod+Shift+K     { focus-monitor-up; }
-    Mod+Shift+L     { focus-monitor-right; }
+    // Mod+Shift+H     { focus-monitor-left; }
+    // Mod+Shift+J     { focus-monitor-down; }
+    // Mod+Shift+K     { focus-monitor-up; }
+    // Mod+Shift+L     { focus-monitor-right; }
 
-    // Move to monitor
+    // move to monitor
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
-    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
-    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+    // Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+    // Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
+    // Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+    // Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
-    // Workspaces
+    // workspaces
     Mod+Page_Down       { focus-workspace-down; }
     Mod+Page_Up         { focus-workspace-up; }
     Mod+U               { focus-workspace-down; }
@@ -260,10 +298,10 @@ binds {
     Mod+Ctrl+I          { move-column-to-workspace-up; }
     Mod+Shift+Page_Down { move-workspace-down; }
     Mod+Shift+Page_Up   { move-workspace-up; }
-    Mod+Shift+U         { move-workspace-down; }
-    Mod+Shift+I         { move-workspace-up; }
+    // Mod+Shift+U         { move-workspace-down; }
+    // Mod+Shift+I         { move-workspace-up; }
 
-    // Scroll workspace/column
+    // scroll workspace/column
     Mod+WheelScrollDown           cooldown-ms=150 { focus-workspace-down; }
     Mod+WheelScrollUp             cooldown-ms=150 { focus-workspace-up; }
     Mod+Ctrl+WheelScrollDown      cooldown-ms=150 { move-column-to-workspace-down; }
@@ -277,7 +315,7 @@ binds {
     Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
     Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
-    // Workspace number shortcuts
+    // workspace number shortcuts
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
@@ -297,7 +335,7 @@ binds {
     Mod+Ctrl+8 { move-column-to-workspace 8; }
     Mod+Ctrl+9 { move-column-to-workspace 9; }
 
-    // Column/window sizing
+    // column and window sizing
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
     Mod+Comma        { consume-window-into-column; }
@@ -314,7 +352,7 @@ binds {
     Mod+Shift+Minus  { set-window-height "-10%"; }
     Mod+Shift+Equal  { set-window-height "+10%"; }
 
-    // Screenshots
+    // screenshots
     Print          { screenshot; }
     Mod+Shift+S    { screenshot; }
     Ctrl+Print     { screenshot-screen; }
@@ -324,11 +362,6 @@ binds {
     Mod+Shift+E    { quit; }
     Ctrl+Alt+Delete { quit; }
     Mod+Shift+P    { power-off-monitors; }
-}
-
-cursor {
-    xcursor-theme "Silksong"
-    xcursor-size 24
 }
 
 include "./noctalia.kdl"

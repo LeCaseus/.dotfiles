@@ -1,0 +1,15 @@
+{
+  "activeBackend": "qt6-multimedia",
+  "automationMode": "random",
+  "automationTime": 300,
+  "fillMode": "fit",
+  "mpvSocket": "/tmp/mpv-socket",
+  "profile": "default",
+  "volume": 1,
+  "wallpapersFolder": "/home/lecaseus/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/workshop/content/431960",
+  "thumbCacheReady": true,
+  "enabled": true,
+  "eDP-1": {
+    "isPlaying": false
+  }
+}

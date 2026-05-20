@@ -4,5 +4,5 @@ if status is-interactive
     set fish_greeting
     starship init fish | source
     export EDITOR=hx
-    alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+    alias lcdf='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 end
