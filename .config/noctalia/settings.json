@@ -25,7 +25,7 @@
         "showIconBackground": false,
         "sortByMostUsed": true,
         "terminalCommand": "ghostty -e",
-        "viewMode": "list"
+        "viewMode": "grid"
     },
     "audio": {
         "mprisBlacklist": [
@@ -228,6 +228,12 @@
                     "usePadding": false
                 },
                 {
+                    "defaultSettings": {
+                        "iconColor": "none"
+                    },
+                    "id": "plugin:color-scheme-creator"
+                },
+                {
                     "colorizeDistroLogo": false,
                     "colorizeSystemIcon": "none",
                     "colorizeSystemText": "none",
@@ -236,9 +242,6 @@
                     "icon": "noctalia",
                     "id": "ControlCenter",
                     "useDistroLogo": false
-                },
-                {
-                    "id": "plugin:color-scheme-creator"
                 }
             ]
         }
@@ -507,7 +510,7 @@
         "forced": true,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
-        "nightTemp": "4002"
+        "nightTemp": "4000"
     },
     "noctaliaPerformance": {
         "disableDesktopWidgets": false,

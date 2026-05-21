@@ -1,12 +1,12 @@
 # dotfiles — Star Wars Sith Theme
 
-This is my first completed setup. As of this posting, I am on Fedora 44 (custom OS), using Niri as my compositor/WM and Noctalia as my desktop-shell (its got everything I need so far). 
+This is my first completed setup. As of this posting, I am on Fedora 44 (custom OS), using Niri as my compositor/WM and Noctalia as my desktop-shell (its got everything I need so far).
 
 ![Rice screenshot](dotassets/2.png)
 
 ---
 
-## The main components
+## The Main Components
 
 | Layer | Choice |
 |---|---|
@@ -25,72 +25,14 @@ This is my first completed setup. As of this posting, I am on Fedora 44 (custom 
 | Fonts | Fira Code Nerd, Inter, Twemoji |
 
 **Display:** Wayland + XWayland satellite. Portals: `xdg-desktop-portal-gnome` (best Niri compatibility). Polkit via kf6 + Noctalia plugin. Clipboard: `wl-clipboard` + `cliphist`.
-```
+
 > The rest of the app stack (browsers, media, dev tools, etc.) isn't part of the rice — swap in whatever you use. The pieces above are what makes it look like the screenshot. Its mainly just my fish, niri, starship, and noctalia configs at work.
-
----
-
-## Boot Optimizations
-
-These changes were made outside `~/` to reduce boot time. Documented here for reference. (or incase I forget)
-
-### Kernel parameters — quiet boot
-
-```bash
-sudo grubby --update-kernel=ALL --args="quiet loglevel=3"
-```
-
-Stops boot messages printing to screen. Logs still accessible via `journalctl`.
-
-**Revert:** `sudo grubby --update-kernel=ALL --remove-args="quiet loglevel=3"`
-
----
-
-### GRUB timeout
-
-Set `GRUB_TIMEOUT=0` in `/etc/default/grub`, then rebuilt config:
-
-```bash
-sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-```
-
-Boots straight to default entry. To access the GRUB menu when needed, hold **Shift** or spam **Esc** immediately after BIOS handoff.
-
-**Revert:** Set `GRUB_TIMEOUT=5` in `/etc/default/grub` and rebuild.
-
----
-
-### Boot time (post-optimization)
-
-```
-firmware:   ~7s    (BIOS/UEFI — not reducible without BIOS tuning)
-loader:     ~6.6s  (GRUB — reduced from 8.7s after timeout change)
-kernel:     ~944ms
-initrd:     ~6.5s  (dracut + hardware enumeration — expected)
-userspace:  ~4.2s  (healthy)
-─────────────────
-total:      ~26s
-```
-
-Firmware and initrd times are largely hardware-bound.
-
----
-
-## Known Issues
-
-### niri-session deprecation warning
-
-`niri-session` calls `systemctl --user import-environment` without a variable list, which triggers a systemd deprecation warning on login and shutdown. Tracked upstream at [niri#254](https://github.com/niri-wm/niri/issues/254). Harmless — left as-is pending upstream fix.
-
-### Gray screen + three dots on boot
-
-Briefly appears before the session loads. Unsure what it actually is — not a problem in practice, just noting it exists.
 
 ---
 
 ## System Tweaks
 
-### GRUB kernel parameters
+### GRUB Kernel Parameters
 
 Added to `GRUB_CMDLINE_LINUX` in `/etc/default/grub`:
 
@@ -118,7 +60,7 @@ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 ---
 
-### NVIDIA dGPU runtime power management
+### NVIDIA dGPU Runtime Power Management
 
 Enables RTD3 (PCI-Express Runtime D3) power management for the RTX 3050 so the dGPU can suspend when not in use.
 
@@ -149,3 +91,66 @@ sudo dracut --force
 Reference: [NVIDIA RTD3 documentation](https://download.nvidia.com/XFree86/Linux-x86_64/435.17/README/dynamicpowermanagement.html)
 
 **Revert:** remove the files in `/etc/udev/rules.d/`, `/etc/modprobe.d/`, and `/etc/modules-load.d/`, then rebuild dracut.
+
+---
+
+### Disabled Services
+
+Disabled to reduce startup time (from ~34s to ~29s userspace):
+
+- **dnf-makecache.timer** — DNF metadata refresh on boot; unnecessary at startup
+- **NetworkManager-wait-online.service** — waits for full network before proceeding; unneeded on desktop
+- **abrtd.service** — ABRT crash reporter
+- **ModemManager.service** — mobile broadband manager; no modem present
+
+---
+
+## Boot Optimizations
+
+### Quiet Boot
+
+```bash
+sudo grubby --update-kernel=ALL --args="quiet loglevel=3"
+```
+
+Stops boot messages printing to screen. Logs still accessible via `journalctl`.
+
+**Revert:** `sudo grubby --update-kernel=ALL --remove-args="quiet loglevel=3"`
+
+---
+
+### GRUB Timeout
+
+Set `GRUB_TIMEOUT=0` in `/etc/default/grub`, then rebuilt config:
+
+```bash
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+```
+
+Boots straight to default entry. To access the GRUB menu when needed, hold **Shift** or spam **Esc** immediately after BIOS handoff.
+
+**Revert:** Set `GRUB_TIMEOUT=5` in `/etc/default/grub` and rebuild.
+
+---
+
+### Boot Time (Post-Optimization)
+
+```
+firmware:   ~7s    (BIOS/UEFI — not reducible without BIOS tuning)
+loader:     ~6.6s  (GRUB — reduced from 8.7s after timeout change)
+kernel:     ~944ms
+initrd:     ~6.5s  (dracut + hardware enumeration — expected)
+userspace:  ~4.2s  (healthy)
+─────────────────
+total:      ~26s
+```
+
+Firmware and initrd times are largely hardware-bound.
+
+---
+
+## Known Issues
+
+### niri-session Deprecation Warning
+
+`niri-session` calls `systemctl --user import-environment` without a variable list, which triggers a systemd deprecation warning on login and shutdown. Tracked upstream at [niri#254](https://github.com/niri-wm/niri/issues/254). Harmless — left as-is pending upstream fix.
