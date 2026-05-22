@@ -119,57 +119,51 @@ spawn-at-startup "lxpolkit"
 // ── ANIMATIONS ──────────────────────────────────────────
 
 animations {
-    workspace-switch {
-        spring damping-ratio=1.0 stiffness=3000 epsilon=0.0001
-    }
-    horizontal-view-movement {
-        spring damping-ratio=1.0 stiffness=3000 epsilon=0.0001
-    }
-    window-movement {
-        spring damping-ratio=1.0 stiffness=3000 epsilon=0.0001
-    }
-    /-window-open {
-        duration-ms 300
-        curve "linear"
+    window-open {
+        duration-ms 400
+        curve "ease-out-expo"
 
         custom-shader r"
             vec4 open_color(vec3 coords_geo, vec3 size_geo) {
-                if (coords_geo.x > niri_clamped_progress) {
-                    return vec(0.0);
-                }
+                if (coords_geo.x < 0.0 || coords_geo.x > 1.0 ||
+                    coords_geo.y < 0.0 || coords_geo.y > 1.0)
+                    return vec4(0.0);
 
-                vec3 coords_tex = niri_geo_to_tex_next * coords_geo;
-                if (coords_tex.x < 0.0 || coords_tex.x > 1.0 ||
-                    coords_tex.y < 0.0 || coords_tex.y > 1.0) {
-                    return vec4(0.0),
-                }
-                
-                return texture2D(niri_tex_next, coords_tex.st);
+                float aspect = size_geo.x / size_geo.y;
+                vec2 centered = coords_geo.xy - vec2(0.5, 0.5);
+                centered.x *= aspect;
+                float dist = length(centered) / length(vec2(aspect * 0.5, 0.5));
+
+                float radius = niri_clamped_progress;
+                float alpha = 1.0 - smoothstep(radius - 0.04, radius, dist);
+
+                // Solid dark fill expanding as iris, then window composites on top
+                return vec4(0.05, 0.05, 0.08, alpha);
             }
         "
     }
-    /-window-close {
-        duration-ms 300
-        curve "linear"
+    window-close {
+        duration-ms 400
+        curve "ease-out-expo"
 
         custom-shader r"
             vec4 close_color(vec3 coords_geo, vec3 size_geo) {
-                // Horizontal wipe: hide from left to right
-                if (coords_geo.x < niri_clamped_progress) {
+                if (coords_geo.x < 0.0 || coords_geo.x > 1.0 ||
+                    coords_geo.y < 0.0 || coords_geo.y > 1.0)
                     return vec4(0.0);
-                }
 
-                vec3 coords_tex = niri_geo_to_tex_next * coords_geo;
-                if (coords_tex.x < 0.0 || coords_tex.x > 1.0 ||
-                    coords_tex.y < 0.0 || coords_tex.y > 1.0) {
-                    return vec4(0.0);
-                }
+                float aspect = size_geo.x / size_geo.y;
+                vec2 centered = coords_geo.xy - vec2(0.5, 0.5);
+                centered.x *= aspect;
+                float dist = length(centered) / length(vec2(aspect * 0.5, 0.5));
 
-                return texture2D(niri_tex_next, coords_tex.st);
+                float radius = 1.0 - niri_clamped_progress;
+                float alpha = 1.0 - smoothstep(radius - 0.04, radius, dist);
+
+                return vec4(0.05, 0.05, 0.08, alpha);
             }
         "
     }
-
 }
 
 // ── SCREENSHOTS ─────────────────────────────────────────
@@ -285,7 +279,6 @@ binds {
     Alt+F4 repeat=false { close-window; }
     Mod+Q repeat=false { close-window; }
     Mod+D repeat=false { toggle-overview; }
-    Mod+O repeat=false { toggle-overview; }
     Mod+V { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
     Mod+F { maximize-column; }
@@ -298,20 +291,12 @@ binds {
     Mod+Down  { focus-window-down; }
     Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
-    // Mod+H     { focus-column-left; }
-    // Mod+J     { focus-window-down; }
-    // Mod+K     { focus-window-up; }
-    // Mod+L     { focus-column-right; }
 
     // move windows
     Mod+Ctrl+Left  { move-column-left; }
     Mod+Ctrl+Down  { move-window-down; }
     Mod+Ctrl+Up    { move-window-up; }
     Mod+Ctrl+Right { move-column-right; }
-    // Mod+Ctrl+H     { move-column-left; }
-    // Mod+Ctrl+J     { move-window-down; }
-    // Mod+Ctrl+K     { move-window-up; }
-    // Mod+Ctrl+L     { move-column-right; }
 
     Mod+Home      { focus-column-first; }
     Mod+End       { focus-column-last; }
@@ -323,20 +308,12 @@ binds {
     Mod+Shift+Down  { focus-monitor-down; }
     Mod+Shift+Up    { focus-monitor-up; }
     Mod+Shift+Right { focus-monitor-right; }
-    // Mod+Shift+H     { focus-monitor-left; }
-    // Mod+Shift+J     { focus-monitor-down; }
-    // Mod+Shift+K     { focus-monitor-up; }
-    // Mod+Shift+L     { focus-monitor-right; }
 
     // move to monitor
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
-    // Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
-    // Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
-    // Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
-    // Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
     // workspaces
     Mod+Page_Down       { focus-workspace-down; }
@@ -349,8 +326,6 @@ binds {
     Mod+Ctrl+I          { move-column-to-workspace-up; }
     Mod+Shift+Page_Down { move-workspace-down; }
     Mod+Shift+Page_Up   { move-workspace-up; }
-    // Mod+Shift+U         { move-workspace-down; }
-    // Mod+Shift+I         { move-workspace-up; }
 
     // scroll workspace/column
     Mod+WheelScrollDown           cooldown-ms=150 { focus-workspace-down; }
@@ -414,6 +389,8 @@ binds {
     Ctrl+Alt+Delete { quit; }
     Mod+Shift+P    { power-off-monitors; }
 }
+
+// ── INCLUDES --------------------------------------------
 
 include "./noctalia.kdl"
 

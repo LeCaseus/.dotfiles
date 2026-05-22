@@ -1,1 +1,3 @@
 theme = "noctalia"
+[editor.soft-wrap]
+enable = true
