@@ -51,8 +51,8 @@ input {
 
 // ── WORKSPACES ──────────────────────────────────────────
 
-// workspace "Start" {}
-// workspace "Browsing" {}
+// workspace "Main" {}
+workspace "Browsing" {}
 
 // ── LAYOUT ──────────────────────────────────────────────
 
@@ -83,7 +83,7 @@ layout {
 
     border {
         off
-        width 4
+        width 2
         active-color "#DDD0B8"
         inactive-color "#706050"
         urgent-color "#89C468"
@@ -103,24 +103,27 @@ layout {
 // ── BLUR ────────────────────────────────────────────────
 
 blur {
-    passes 2
-    offset 2.0
-    noise 0.01
-    saturation 1.0
+    passes 3
+    offset 6.0
+    noise 0.05
+    saturation 1.5
 }
 
 // ── STARTUP ─────────────────────────────────────────────
 
 spawn-sh-at-startup "qs -c noctalia-shell"
+// spawn-sh-at-startup "/home/lecaseus/.config/niri/niri_tile_to_n.py"
+spawn-sh-at-startup "qs -c noctalia-shell ipc call lockScreen lock"
 // spawn-sh-at-startup "/home/lecaseus/BuiltFromSource/linux-wallpaperengine/build/output/linux-wallpaperengine --screen-root eDP-1 --fps 30 --no-audio-processing --silent 2843660311"
 spawn-at-startup "lxpolkit"
-// spawn-sh-at-startup "bash /home/lecaseus/.config/niri/startup.sh"
+spawn-at-startup "powerprofilesctl" "set" "performance"
+// spawn-at-startup "/home/lecaseus/.config/niri/startup.sh"
 
 // ── ANIMATIONS ──────────────────────────────────────────
 
 animations {
     window-open {
-        duration-ms 400
+        duration-ms 100
         curve "ease-out-expo"
 
         custom-shader r"
@@ -143,7 +146,7 @@ animations {
         "
     }
     window-close {
-        duration-ms 400
+        duration-ms 100
         curve "ease-out-expo"
 
         custom-shader r"
@@ -163,6 +166,12 @@ animations {
                 return vec4(0.05, 0.05, 0.08, alpha);
             }
         "
+    }
+    horizontal-view-movement {
+        spring damping-ratio=0.67 stiffness=300 epsilon=0.005
+    }
+    workspace-switch {
+        spring damping-ratio=0.67 stiffness=300 epsilon=0.005
     }
 }
 
@@ -187,9 +196,9 @@ hotkey-overlay {
 
 // global
 window-rule {
-    geometry-corner-radius 16
+    geometry-corner-radius 20
     clip-to-geometry true
-    opacity 0.87
+    // opacity 0.67 // handled by ghostty
     background-effect {
         blur true
         xray false
@@ -198,20 +207,20 @@ window-rule {
 }
 
 // ghostty workspace pins
-/-window-rule {
-    match app-id="com.mitchellh.ghostty" title="fetch"
+window-rule {
+    match app-id="com.mitchellh.ghostty" title="fastfetch"
     open-on-workspace "Start"
 }
-/-window-rule {
-    match app-id="com.mitchellh.ghostty" title="files"
+window-rule {
+    match app-id="com.mitchellh.ghostty" title="yazi"
     open-on-workspace "Start"
 }
-/-window-rule {
-    match app-id="com.mitchellh.ghostty" title="matrix"
+window-rule {
+    match app-id="com.mitchellh.ghostty" title="music"
     open-on-workspace "Start"
 }
-/-window-rule {
-    match app-id="com.mitchellh.ghostty" title="monitor"
+window-rule {
+    match app-id="com.mitchellh.ghostty" title="btop"
     open-on-workspace "Start"
 }
 
@@ -225,7 +234,13 @@ window-rule {
 
 // firefox
 window-rule {
-    match title="Firefox"
+    match title="Zen"
+    open-on-workspace "Browsing"
+    open-maximized true
+}
+
+window-rule {
+    match app-id="vesktop"
     open-maximized true
 }
 
@@ -238,6 +253,7 @@ layer-rule {
 
 layer-rule {
     match namespace="^noctalia-(bar-main|notification|dock|panel)$"
+    opacity 0.67
     background-effect {
         blur true
         xray false
@@ -263,6 +279,7 @@ binds {
     // launcher and session menu
     Mod+Space { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Mod+S { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
+    XF86Sleep { spawn-sh "qs -c noctalia-shell ipc call sessionMenu lockAndSuspend"; }
 
     // media & hardware
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; }

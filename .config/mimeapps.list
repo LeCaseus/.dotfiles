@@ -55,6 +55,6 @@ text/x-csrc=Helix.desktop
 text/x-python=Helix.desktop
 application/json=Helix.desktop
 application/xml=Helix.desktop
-inode/directory=org.gnome.Nautilus.desktop
+inode/directory=yazi.desktop
 x-scheme-handler/discord-831593107883032657=discord-831593107883032657.desktop
 application/x-compressed-tar=org.kde.ark.desktop

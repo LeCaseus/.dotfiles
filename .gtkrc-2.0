@@ -3,7 +3,7 @@
 
 include "/home/lecaseus/.gtkrc-2.0.mine"
 gtk-theme-name="Graphite-Dark"
-gtk-icon-theme-name="Vivid-Dark-Icons"
+gtk-icon-theme-name="candy-icons-master"
 gtk-font-name="Inter 28pt Medium 12"
 gtk-cursor-theme-name="Silksong"
 gtk-cursor-theme-size=24

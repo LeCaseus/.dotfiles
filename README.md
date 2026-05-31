@@ -8,21 +8,21 @@ This is my first completed setup. As of this posting, I am on Fedora 44 (custom 
 
 ## The Main Components
 
-| Layer | Choice |
-|---|---|
-| Compositor | [Niri](https://github.com/YaLTeR/niri) (YaLTeR COPR) |
+| Layer                  | Choice                                                                                                         |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Compositor             | [Niri](https://github.com/YaLTeR/niri) (YaLTeR COPR)                                                           |
 | Shell / bar / launcher | [Noctalia](https://github.com/noctalia) — bar, launcher, lockscreen, notifications, idle, clipboard, wallpaper |
-| Terminal | Ghostty |
-| Shell | fish with starship |
-| Greeter | greetd + agreety (autologin via initial_session) |
-| File managers | Nautilus |
-| Color scheme | Custom picked via Noctalia's Color Scheme Creator plugin |
-| Theme | Graphite dark rimless |
-| Icons | Papirus Dark |
-| Cursor | Silksong |
-| GTK theming | nwg-look |
-| Qt theming | qt6ct |
-| Fonts | Fira Code Nerd, Inter, Twemoji |
+| Terminal               | Ghostty                                                                                                        |
+| Shell                  | fish with starship                                                                                             |
+| Greeter                | greetd + agreety (autologin via initial_session)                                                               |
+| File managers          | Nautilus                                                                                                       |
+| Color scheme           | Custom picked via Noctalia's Color Scheme Creator plugin                                                       |
+| Theme                  | Graphite dark rimless                                                                                          |
+| Icons                  | Papirus Dark                                                                                                   |
+| Cursor                 | Silksong                                                                                                       |
+| GTK theming            | nwg-look                                                                                                       |
+| Qt theming             | qt6ct                                                                                                          |
+| Fonts                  | Fira Code Nerd, Inter, Twemoji                                                                                 |
 
 **Display:** Wayland + XWayland satellite. Portals: `xdg-desktop-portal-gnome` (best Niri compatibility). Polkit via kf6 + Noctalia plugin. Clipboard: `wl-clipboard` + `cliphist`.
 
