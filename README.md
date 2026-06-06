@@ -4,7 +4,7 @@ This is a personal document with the purpose of guiding the installation process
 
 > **NOTE:** I have yet to make a simple install script for just the dotfiles so to anyone else reading this, stay tuned, but skip ahead to the dotfiles section for now.
 
-[Desktop Screenshot](dotassets/3.png)
+![Desktop Screenshot](dotassets/3.png)
 
 ---
 
