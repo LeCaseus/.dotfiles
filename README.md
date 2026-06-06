@@ -4,6 +4,8 @@ This is a personal document with the purpose of guiding the installation process
 
 > **NOTE:** I have yet to make a simple install script for just the dotfiles so to anyone else reading this, stay tuned, but skip ahead to the dotfiles section for now.
 
+[Desktop Screenshot](dotassets/3.png)
+
 ---
 
 ## 1. Base System Prep
@@ -84,11 +86,11 @@ Here is a quick overview what each application does:
 | imv                          | minimal and lightweight image viewer                                          |
 | chafa                        | used for converting images into ASCII art for fastfetch                       |
 | ffmpeg & gpu-screen-recorder | my alternative for OBS although ffmpeg is also used for other things          |
-| mpv                          | media viewer alternative to VLC. I picked this because subTUI depends on it. |
+| mpv                          | media viewer alternative to VLC. I picked this because subTUI depends on it.  |
 | subtui                       | TUI based music player for my navidrome server                                |
 | rsync & rclone               | local and cloud syncing options                                               |
 | marksman/mdpls/prettier      | LSP and formatter for markdown editing in helix                               |
-| nwg-look                     | GUI for editing GTK themes. skip if you prefer the terminal                  |
+| nwg-look                     | GUI for editing GTK themes. skip if you prefer the terminal                   |
 | yt-dlp                       | download music and videos from YouTube                                        |
 
 ### Graphics & Creative Applications
@@ -257,9 +259,11 @@ vt = 1
 command = "agreety --cmd fish"
 
 [initial_session]
-command = "niri-session"
+command = "env VK_ICD_FILES=/usr/share/vulkan/icd.d/radeon_icd.x86_64.json __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json niri-session"
 user = "yourusername"
 ```
+
+> The env variables I set to prevent niri from using my NVIDIA dGPU because I noticed it was running a process at 2MiB via `nvidia-smi` which was a bit annoying.
 
 ---
 

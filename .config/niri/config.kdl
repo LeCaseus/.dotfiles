@@ -20,7 +20,6 @@ environment {
     XDG_SESSION_TYPE "wayland"
     MOZ_ENABLE_WAYLAND "1"
     QT_QPA_PLATFORMTHEME "gtk3"
-    __EGL_VENDOR_LIBRARY_FILENAMES "/usr/share/glvnd/egl_vendor.d/50_mesa.json"
 }
 
 // ── INPUT ───────────────────────────────────────────────
@@ -112,7 +111,7 @@ spawn-sh-at-startup "qs -c noctalia-shell"
 spawn-sh-at-startup "sleep 1 && qs -c noctalia-shell ipc call lockScreen lock"
 // spawn-sh-at-startup "/home/lecaseus/BuiltFromSource/linux-wallpaperengine/build/output/linux-wallpaperengine --screen-root eDP-1 --fps 30 --no-audio-processing --silent 2843660311"
 spawn-at-startup "lxpolkit"
-spawn-at-startup "powerprofilesctl" "set" "power-saver"
+// spawn-at-startup "powerprofilesctl" "set" "power-saver"
 
 // ── ANIMATIONS ──────────────────────────────────────────
 
