@@ -18,8 +18,8 @@ prefer-no-csd
 
 environment {
     XDG_SESSION_TYPE "wayland"
-    QT_QPA_PLATFORMTHEME "qt6ct"
     MOZ_ENABLE_WAYLAND "1"
+    QT_QPA_PLATFORMTHEME "gtk3"
     __EGL_VENDOR_LIBRARY_FILENAMES "/usr/share/glvnd/egl_vendor.d/50_mesa.json"
 }
 
@@ -51,13 +51,10 @@ input {
 
 // ── WORKSPACES ──────────────────────────────────────────
 
-// workspace "Main" {}
-workspace "Browsing" {}
-
 // ── LAYOUT ──────────────────────────────────────────────
 
 layout {
-    gaps 10
+    gaps 20
     center-focused-column "never"
 
     preset-column-widths {
@@ -75,8 +72,8 @@ layout {
     default-column-width { proportion 0.5; }
 
     focus-ring {
-        off
-        width 2
+        // off
+        width 4
         active-color "#B03328"
         inactive-color "#706050"
     }
@@ -103,21 +100,19 @@ layout {
 // ── BLUR ────────────────────────────────────────────────
 
 blur {
-    passes 3
+    passes 2
     offset 6.0
-    noise 0.05
+    noise 0.09
     saturation 1.5
 }
 
 // ── STARTUP ─────────────────────────────────────────────
 
 spawn-sh-at-startup "qs -c noctalia-shell"
-// spawn-sh-at-startup "/home/lecaseus/.config/niri/niri_tile_to_n.py"
-spawn-sh-at-startup "qs -c noctalia-shell ipc call lockScreen lock"
+spawn-sh-at-startup "sleep 1 && qs -c noctalia-shell ipc call lockScreen lock"
 // spawn-sh-at-startup "/home/lecaseus/BuiltFromSource/linux-wallpaperengine/build/output/linux-wallpaperengine --screen-root eDP-1 --fps 30 --no-audio-processing --silent 2843660311"
 spawn-at-startup "lxpolkit"
-spawn-at-startup "powerprofilesctl" "set" "performance"
-// spawn-at-startup "/home/lecaseus/.config/niri/startup.sh"
+spawn-at-startup "powerprofilesctl" "set" "power-saver"
 
 // ── ANIMATIONS ──────────────────────────────────────────
 
@@ -198,30 +193,13 @@ hotkey-overlay {
 window-rule {
     geometry-corner-radius 20
     clip-to-geometry true
-    // opacity 0.67 // handled by ghostty
+    // opacity 0.67 // handled by foot
     background-effect {
         blur true
         xray false
     }
     draw-border-with-background false
-}
-
-// ghostty workspace pins
-window-rule {
-    match app-id="com.mitchellh.ghostty" title="fastfetch"
-    open-on-workspace "Start"
-}
-window-rule {
-    match app-id="com.mitchellh.ghostty" title="yazi"
-    open-on-workspace "Start"
-}
-window-rule {
-    match app-id="com.mitchellh.ghostty" title="music"
-    open-on-workspace "Start"
-}
-window-rule {
-    match app-id="com.mitchellh.ghostty" title="btop"
-    open-on-workspace "Start"
+    open-maximized true
 }
 
 // noctalia settings panel
@@ -232,16 +210,10 @@ window-rule {
     default-window-height { fixed 920; }
 }
 
-// firefox
+// steam games
 window-rule {
-    match title="Zen"
-    open-on-workspace "Browsing"
-    open-maximized true
-}
-
-window-rule {
-    match app-id="vesktop"
-    open-maximized true
+    match app-id="steam_app_*"
+    open-fullscreen true
 }
 
 // ── LAYER RULES ─────────────────────────────────────────
@@ -272,9 +244,9 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // apps
-    Mod+Return hotkey-overlay-title="Terminal: ghostty" { spawn "ghostty"; }
+    Mod+Return hotkey-overlay-title="Terminal: Foot" { spawn "foot"; }
     Mod+L hotkey-overlay-title="Lock Screen" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
-    Mod+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
+    // Mod+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
     // launcher and session menu
     Mod+Space { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
@@ -410,4 +382,3 @@ binds {
 // ── INCLUDES --------------------------------------------
 
 include "./noctalia.kdl"
-

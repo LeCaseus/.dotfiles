@@ -1,15 +1,14 @@
 // Modified from https://github.com/fastfetch-cli/fastfetch/discussions/2133
-// LeCaseus: Modified further from examples/31.jsonc and made into a Sith Empire Theme
+// LeCaseus: Endor Forest Outpost Theme
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
     "type": "data-raw",
-    // TIP: This logo was converted in chava but I will also provide the source png file in the folder.
-    "source": "\u001b[?25l\u001b[0m               ▂\u001b[7m▀\u001b[0m▅\u001b[7m▀\u001b[0m▂               \u001b[0m\n            ▃▅\u001b[7m▔▂\u001b[0m▀\u001b[7m▅\u001b[0m▀\u001b[7m▂▔\u001b[0m▅▃            \u001b[0m\n         ╺▆\u001b[7m ▃▅\u001b[0m▔▁▃▅▃▁▔\u001b[7m▅▃ \u001b[0m▆╴         \u001b[0m\n     ▃▅\u001b[7m▔▂\u001b[0m ▔  \u001b[7m▀\u001b[0m▆\u001b[7m▖   ▗\u001b[0m▆\u001b[7m▀\u001b[0m  ▔ \u001b[7m▂▔\u001b[0m▅▃     \u001b[0m\n ▂\u001b[7m▀\u001b[0m▆\u001b[7m ▃▅\u001b[0m▔     ▔ \u001b[7m▊   \u001b[0m▎ ▔     ▔\u001b[7m▅▃ \u001b[0m▆\u001b[7m▀\u001b[0m▂ \u001b[0m\n\u001b[7m▌ ▗▆\u001b[0m ▂\u001b[7m▀\u001b[0m▆▀▘      \u001b[7m   \u001b[0m      ▝▀▆\u001b[7m▀\u001b[0m▂ \u001b[7m▆\u001b[0m▀\u001b[7m \u001b[0m▌\u001b[0m\n\u001b[7m▌ \u001b[0m▎ \u001b[7m▏   \u001b[0m▅▂      \u001b[7m▎ \u001b[0m▊      ▂▅\u001b[7m   ▕\u001b[0m \u001b[7m▊ \u001b[0m▌\u001b[0m\n\u001b[7m▌ \u001b[0m▎ \u001b[7m▏▃▁   \u001b[0m▆\u001b[7m▀\u001b[0m▂ ▃▅\u001b[7m   \u001b[0m▅▃ ▂\u001b[7m▀\u001b[0m▆\u001b[7m   ▁▃▕\u001b[0m \u001b[7m▊ \u001b[0m▌\u001b[0m\n\u001b[7m▌ \u001b[0m▎ \u001b[7m▎\u001b[0m▎ ▔\u001b[7m▅\u001b[0m▀\u001b[7m▂             ▂\u001b[0m▀\u001b[7m▅\u001b[0m▔ \u001b[7m▊\u001b[0m▊ \u001b[7m▊ \u001b[0m▌\u001b[0m\n▝\u001b[7m▃\u001b[0m▎         \u001b[7m           \u001b[0m         \u001b[7m▊▃\u001b[0m▘\u001b[0m\n▗▅▎         \u001b[7m           \u001b[0m         \u001b[7m▊\u001b[0m▅▖\u001b[0m\n\u001b[7m▌ \u001b[0m▎ \u001b[7m▎\u001b[0m▎ ▁▂\u001b[7m▀\u001b[0m▆\u001b[7m             \u001b[0m▆\u001b[7m▀\u001b[0m▃▁ \u001b[7m▊\u001b[0m▊ \u001b[7m▊ \u001b[0m▌\u001b[0m\n\u001b[7m▌ \u001b[0m▎ \u001b[7m▏\u001b[0m▅\u001b[7m▔   ▂\u001b[0m▀\u001b[7m▆\u001b[0m \u001b[7m▆\u001b[0m▀\u001b[7m   ▃▆\u001b[0m \u001b[7m▆\u001b[0m▀\u001b[7m▂   ▔\u001b[0m▅\u001b[7m▕\u001b[0m \u001b[7m▊ \u001b[0m▌\u001b[0m\n\u001b[7m▌ \u001b[0m▎ \u001b[7m▏   ▃▆\u001b[0m      \u001b[7m▎ \u001b[0m▊      \u001b[7m▆▃   ▕\u001b[0m \u001b[7m▊ \u001b[0m▌\u001b[0m\n\u001b[7m▌ ▝\u001b[0m▂ \u001b[7m▆\u001b[0m▀\u001b[7m▂▀\u001b[0m▖      \u001b[7m   \u001b[0m      ▗\u001b[7m▀▂\u001b[0m▀\u001b[7m▆\u001b[0m ▂\u001b[7m▀ \u001b[0m▌\u001b[0m\n \u001b[7m▆▅▂ \u001b[0m▆▃▁     ▁ \u001b[7m▊   \u001b[0m▎ ▁     ▁▃▅\u001b[7m ▂\u001b[0m▀\u001b[7m▆\u001b[0m \u001b[0m\n     \u001b[7m▆▃▁▔\u001b[0m ▂  ▀\u001b[7m▂▘   ▝▂\u001b[0m▀  ▂ \u001b[7m▔▁▃▅\u001b[0m     \u001b[0m\n          \u001b[7m▂ \u001b[0m▆▃▁▔\u001b[7m▅▃▅\u001b[0m▔▁▃▅\u001b[7m ▂\u001b[0m╸         \u001b[0m\n            \u001b[7m▆▃▁\u001b[0m▆\u001b[7m▀\u001b[0m▃\u001b[7m▀\u001b[0m▆\u001b[7m▁▃▅\u001b[0m            \u001b[0m\n               \u001b[7m▆▅▃\u001b[0m▀\u001b[7m▆\u001b[0m               \u001b[0m\n\u001b[?25h",
+    "source": "             ▗▟▙▁             \n      ┎     ▗████▖     ┒      \n    ▄▛    ▄▄ ███▛▁▄▃    ▜▄    \n  ▗█▛    ▝███▟██▙██▛▘    ▜█▖  \n ▗██▎      ▝██████▘      ▕██▖ \n▗███        ▐████▍        ███▖\n▟███▏        ████        ▗███▊\n████▙       ▕████        ▟████\n█████▇▃     ▟████▙     ▃██████\n▜███████▆▅▆████████▅▅▆███████▊\n▝████████████████████████████▘\n ▐██████████████████████████▛ \n  ▀████████████████████████▛  \n   ▝▜█████████████████████▘   \n     ▔▀████████████████▛▀     \n        ▔▀▀████████▀▀▀        \n",
     "padding": {
-      "top": 4,
-      "left": 2,
-      "right": 0
+      "top": 5,
+      "left": 4,
+      "right": 4
     }
   },
   "display": {
@@ -29,51 +28,51 @@
   "modules": [
     {
       "type": "custom",
-      "format": "{#@196}╔════════════════════════════════════════════════════╗"
+      "format": "{#@22}╔════════════════════════════════════════════════════╗"
     },
     {
       "type": "custom",
-      "format": "{#@196}║ {#@196}███████╗██╗████████╗██╗  ██╗  {#@244}IMPERIAL COMMAND     {#@196}║"
+      "format": "{#@22}║     {#@34}███████╗███╗   ██╗██████╗  ██████╗ ██████╗     {#@22}║"
     },
     {
       "type": "custom",
-      "format": "{#@196}║ {#@196}██╔════╝██║╚══██╔══╝██║  ██║  {#@244}HOLONET RELAY        {#@196}║"
+      "format": "{#@22}║     {#@34}██╔════╝████╗  ██║██╔══██╗██╔═══██╗██╔══██╗    {#@22}║"
     },
     {
       "type": "custom",
-      "format": "{#@196}║ {#@196}███████╗██║   ██║   ███████║                       {#@196}║"
+      "format": "{#@22}║     {#@34}█████╗  ██╔██╗ ██║██║  ██║██║   ██║██████╔╝    {#@22}║"
     },
     {
       "type": "custom",
-      "format": "{#@196}║ {#@196}╚════██║██║   ██║   ██╔══██║  {#@88}CLASSIFIED           {#@196}║"
+      "format": "{#@22}║     {#@34}██╔══╝  ██║╚██╗██║██║  ██║██║   ██║██╔══██╗    {#@22}║"
     },
     {
       "type": "custom",
-      "format": "{#@196}║ {#@196}███████║██║   ██║   ██║  ██║  {#@88}ACCESS ONLY          {#@196}║"
+      "format": "{#@22}║     {#@34}███████╗██║ ╚████║██████╔╝╚██████╔╝██║  ██║    {#@22}║"
     },
     {
       "type": "custom",
-      "format": "{#@196}║ {#@196}╚══════╝╚═╝   ╚═╝   ╚═╝  ╚═╝                       {#@196}║"
+      "format": "{#@22}║     {#@34}╚══════╝╚═╝  ╚═══╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝    {#@22}║"
     },
     {
       "type": "custom",
-      "format": "{#@196}╚════════════════════════════════════════════════════╝"
+      "format": "{#@22}╚════════════════════════════════════════════════════╝"
     },
     {
       "type": "custom",
-      "format": "{#@196}╔══●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━●══╗"
+      "format": "{#@22}╔══●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━●══╗"
     },
     {
       "type": "custom",
-      "format": "{#@196}║ {#@244}ISD-01{#@196} ●{#@88}───{#@196}● IMPERIAL HOLONET NETWORK ●{#@88}───{#@196}● {#@244}ISD-02{#@196} ║"
+      "format": "{#@22}║     {#@58}OP-01{#@22} ●{#@64}───{#@22}● ALLIANCE STRIKE NET ●{#@64}───{#@22}● {#@58}OP-02{#@22}    ║"
     },
     {
       "type": "custom",
-      "format": "{#@196}╚══●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━●══╝"
+      "format": "{#@22}╚══●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━●══╝"
     },
     {
       "type": "custom",
-      "format": "{#@196}▰{#@88}▰{#@196}▰{#@88}▰{#@196} SECTOR LINE {#@88}▰{#@196}▰{#@88}▰{#@196}▰ {#@244}[{#@231}TERMINAL DATA{#@244}]"
+      "format": "{#@22}▰{#@64}▰{#@22}▰{#@64}▰{#@22} CANOPY LINE {#@64}▰{#@22}▰{#@64}▰{#@22}▰ {#@58}[{#@231}TERMINAL DATA{#@58}]"
     },
     {
       "type": "os",
@@ -89,45 +88,44 @@
     },
     {
       "type": "custom",
-      "format": "{#@196}▰{#@88}▰{#@196}▰{#@88}▰{#@196}▰ IMPERIAL {#@88}▰{#@196}▰{#@88}▰{#@196}▰{#@88}▰ {#@196}[{#@231}OFFICER{#@196}] {#@244}CHESHIRE"
+      "format": "{#@22}▰{#@64}▰{#@22}▰{#@64}▰{#@22}▰ OUTPOST {#@64}▰{#@22}▰{#@64}▰{#@22}▰{#@64}▰ {#@22}[{#@231}OPERATIVE{#@22}] {#@58}CHESHIRE"
     },
     {
       "type": "users",
-      "key": "{#@231}│ RANK        ",
+      "key": "{#@231}│ CALLSIGN    ",
       "format": "{name}, since {login-time}",
       "myselfOnly": true
     },
     {
       "type": "localip",
-      "key": "{#@231}│ SECTOR-NET  ",
+      "key": "{#@231}│ FOREST-NET  ",
       "format": "{ipv4}"
     },
     {
       "type": "custom",
-      "format": "{#@196}▰{#@88}▰{#@196}▰{#@88}▰{#@196}▰ ALERT {#@88}▰{#@196}▰{#@88}▰{#@196}▰{#@88}▰ {#@231}[{#@196}EXECUTOR{#@231}] {#@244}CORE STATUS"
+      "format": "{#@22}▰{#@64}▰{#@22}▰{#@64}▰{#@22}▰ RECON {#@64}▰{#@22}▰{#@64}▰{#@22}▰{#@64}▰ {#@231}[{#@34}SPEEDER{#@231}] {#@58}SYSTEMS STATUS"
     },
     {
       "type": "cpu",
-      "key": "{#@231}│ HYPERDRIVE  ",
-      "format": "{name}"
+      "key": "{#@231}│ DRIVE       "
     },
     {
       "type": "cpu",
-      "key": "{#@231}│ THREAD-COUNT",
+      "key": "{#@231}│ THREADS     ",
       "format": "{cores-physical}C / {cores-logical}T"
     },
     {
       "type": "custom",
-      "format": "{#@196}▰{#@88}▰{#@196}▰{#@88}▰{#@196} CAUTION {#@88}▰{#@196}▰{#@88}▰{#@196}▰ {#@231}[{#@244}SHIELD{#@231}] {#@88}[{#@244}DEFLECTOR{#@88}]"
+      "format": "{#@22}▰{#@64}▰{#@22}▰{#@64}▰{#@22} CANTEEN {#@64}▰{#@22}▰{#@64}▰{#@22}▰ {#@231}[{#@58}SUPPLY{#@231}] {#@94}[{#@58}RESERVES{#@94}]"
     },
     {
       "type": "memory",
-      "key": "{#@88}│ SHIELD-LVL  ",
+      "key": "{#@94}│ SHIELDS     ",
       "format": "{used} / {total} (RAM)"
     },
     {
       "type": "memory",
-      "key": "{#@88}│ DEFLECTOR   ",
+      "key": "{#@94}│ SHIELD      ",
       "percent": {
         "type": [
           "bar",
@@ -138,13 +136,13 @@
     {
       "type": "disk",
       "folders": "/",
-      "key": "{#@88}│ CARGO-BAY   ",
+      "key": "{#@94}│ CARGO       ",
       "format": "{size-used} / {size-total} (DISK)"
     },
     {
       "type": "disk",
       "folders": "/",
-      "key": "{#@88}│ CAPACITY    ",
+      "key": "{#@94}│ CACHE-LOAD  ",
       "percent": {
         "type": [
           "bar",
@@ -154,23 +152,23 @@
     },
     {
       "type": "custom",
-      "format": "{#@196}╔════════════════════════════════════════════════════╗"
+      "format": "{#@22}╔════════════════════════════════════════════════════╗"
     },
     {
       "type": "custom",
-      "format": "{#@196}║   {#@244}[SYSTEMS NOMINAL] {#@196}HOLONET: {#@244}ONLINE {#@196}STATUS: {#@244}OK {#@196}    ║"
+      "format": "{#@22}║     {#@58}[SYSTEMS NOMINAL] {#@22}COMMS: {#@58}ONLINE {#@22}STATUS: {#@58}OK {#@22}    ║"
     },
     {
       "type": "custom",
-      "format": "{#@196}╚════════════════════════════════════════════════════╝"
+      "format": "{#@22}╚════════════════════════════════════════════════════╝"
     },
     {
       "type": "custom",
-      "format": "{#@244}          COMMANDER CHESHIRE - AWAITING ORDERS"
+      "format": "{#@58}          OPERATIVE CHESHIRE - STANDING BY"
     },
     {
       "type": "custom",
-      "format": "{#@196}              The Force will set you free."
+      "format": "{#@34}            The forest fights with us."
     }
   ]
 }

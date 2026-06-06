@@ -1,0 +1,73 @@
+{
+  "version": 1.1,
+  "atDirectives": [
+    {
+      "name": "@define-color",
+      "description": "GTK CSS — defines a named color variable for use with @color-name syntax"
+    }
+  ],
+  "pseudoClasses": [
+    {
+      "name": ":not"
+    },
+    {
+      "name": ":first-child"
+    },
+    {
+      "name": ":last-child"
+    },
+    {
+      "name": ":only-child"
+    },
+    {
+      "name": ":checked"
+    },
+    {
+      "name": ":disabled"
+    },
+    {
+      "name": ":focus"
+    },
+    {
+      "name": ":hover"
+    },
+    {
+      "name": ":active"
+    },
+    {
+      "name": ":selected"
+    },
+    {
+      "name": ":indeterminate"
+    },
+    {
+      "name": ":backdrop"
+    },
+    {
+      "name": ":dir"
+    },
+    {
+      "name": ":link"
+    },
+    {
+      "name": ":visited"
+    }
+  ],
+  "pseudoElements": [
+    {
+      "name": "::before"
+    },
+    {
+      "name": "::after"
+    },
+    {
+      "name": "::selection"
+    },
+    {
+      "name": "::placeholder"
+    },
+    {
+      "name": "::slotted"
+    }
+  ]
+}

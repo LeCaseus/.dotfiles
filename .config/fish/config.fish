@@ -13,10 +13,8 @@ if status is-interactive
     set fish_greeting
     starship init fish | source
     set -gx EDITOR hx
-    export PATH="$HOME/.local/bin:$PATH"
+    set -gx PATH $HOME/.local/bin $PATH
+    cat ~/.cache/wal/sequences
     alias dots='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+    alias record='gpu-screen-recorder -w portal -f 60 -k h264 -encoder cpu -o ~/Videos/recording_$(date +%Y%m%d_%H%M%S).mp4'
 end
-
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH /home/lecaseus/.lmstudio/bin
-# End of LM Studio CLI section

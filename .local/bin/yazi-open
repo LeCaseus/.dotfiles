@@ -1,3 +1,0 @@
-# ~/.local/bin/yazi-open
-#!/usr/bin/env bash
-exec ghostty -- yazi "$@"

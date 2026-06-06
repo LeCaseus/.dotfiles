@@ -1,0 +1,12 @@
+[[language]]
+name = "markdown"
+language-servers = [ "marksman", "mdpls" ]
+formatter = { command = "prettier", args = ["--parser", "markdown"] }
+auto-format = true
+
+[language-server.mdpls]
+command = "mdpls"
+config = { markdown.preview.auto = true }
+
+[language-server.vscode-css-language-server]
+config = { customData = ["/home/YOUR_USER/.config/helix/gtk-css-data.json"] }

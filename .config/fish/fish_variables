@@ -1,3 +1,4 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export --path PATH:/home/lecaseus/\x2elocal/bin\x1e/usr/local/bin\x1e/usr/bin\x1e/home/lecaseus/\x2elmstudio/bin\x1e/home/lecaseus/\x2elmstudio/bin
 SETUVAR __fish_initialized:4300

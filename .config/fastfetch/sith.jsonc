@@ -1,0 +1,176 @@
+// Modified from https://github.com/fastfetch-cli/fastfetch/discussions/2133
+// LeCaseus: Modified further from examples/31.jsonc and made into a Sith Empire Theme
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "data-raw",
+    // TIP: This logo was converted in chava but I will also provide the source png file in the folder.
+    "source": "\u001b[?25l\u001b[0m               ▂\u001b[7m▀\u001b[0m▅\u001b[7m▀\u001b[0m▂               \u001b[0m\n            ▃▅\u001b[7m▔▂\u001b[0m▀\u001b[7m▅\u001b[0m▀\u001b[7m▂▔\u001b[0m▅▃            \u001b[0m\n         ╺▆\u001b[7m ▃▅\u001b[0m▔▁▃▅▃▁▔\u001b[7m▅▃ \u001b[0m▆╴         \u001b[0m\n     ▃▅\u001b[7m▔▂\u001b[0m ▔  \u001b[7m▀\u001b[0m▆\u001b[7m▖   ▗\u001b[0m▆\u001b[7m▀\u001b[0m  ▔ \u001b[7m▂▔\u001b[0m▅▃     \u001b[0m\n ▂\u001b[7m▀\u001b[0m▆\u001b[7m ▃▅\u001b[0m▔     ▔ \u001b[7m▊   \u001b[0m▎ ▔     ▔\u001b[7m▅▃ \u001b[0m▆\u001b[7m▀\u001b[0m▂ \u001b[0m\n\u001b[7m▌ ▗▆\u001b[0m ▂\u001b[7m▀\u001b[0m▆▀▘      \u001b[7m   \u001b[0m      ▝▀▆\u001b[7m▀\u001b[0m▂ \u001b[7m▆\u001b[0m▀\u001b[7m \u001b[0m▌\u001b[0m\n\u001b[7m▌ \u001b[0m▎ \u001b[7m▏   \u001b[0m▅▂      \u001b[7m▎ \u001b[0m▊      ▂▅\u001b[7m   ▕\u001b[0m \u001b[7m▊ \u001b[0m▌\u001b[0m\n\u001b[7m▌ \u001b[0m▎ \u001b[7m▏▃▁   \u001b[0m▆\u001b[7m▀\u001b[0m▂ ▃▅\u001b[7m   \u001b[0m▅▃ ▂\u001b[7m▀\u001b[0m▆\u001b[7m   ▁▃▕\u001b[0m \u001b[7m▊ \u001b[0m▌\u001b[0m\n\u001b[7m▌ \u001b[0m▎ \u001b[7m▎\u001b[0m▎ ▔\u001b[7m▅\u001b[0m▀\u001b[7m▂             ▂\u001b[0m▀\u001b[7m▅\u001b[0m▔ \u001b[7m▊\u001b[0m▊ \u001b[7m▊ \u001b[0m▌\u001b[0m\n▝\u001b[7m▃\u001b[0m▎         \u001b[7m           \u001b[0m         \u001b[7m▊▃\u001b[0m▘\u001b[0m\n▗▅▎         \u001b[7m           \u001b[0m         \u001b[7m▊\u001b[0m▅▖\u001b[0m\n\u001b[7m▌ \u001b[0m▎ \u001b[7m▎\u001b[0m▎ ▁▂\u001b[7m▀\u001b[0m▆\u001b[7m             \u001b[0m▆\u001b[7m▀\u001b[0m▃▁ \u001b[7m▊\u001b[0m▊ \u001b[7m▊ \u001b[0m▌\u001b[0m\n\u001b[7m▌ \u001b[0m▎ \u001b[7m▏\u001b[0m▅\u001b[7m▔   ▂\u001b[0m▀\u001b[7m▆\u001b[0m \u001b[7m▆\u001b[0m▀\u001b[7m   ▃▆\u001b[0m \u001b[7m▆\u001b[0m▀\u001b[7m▂   ▔\u001b[0m▅\u001b[7m▕\u001b[0m \u001b[7m▊ \u001b[0m▌\u001b[0m\n\u001b[7m▌ \u001b[0m▎ \u001b[7m▏   ▃▆\u001b[0m      \u001b[7m▎ \u001b[0m▊      \u001b[7m▆▃   ▕\u001b[0m \u001b[7m▊ \u001b[0m▌\u001b[0m\n\u001b[7m▌ ▝\u001b[0m▂ \u001b[7m▆\u001b[0m▀\u001b[7m▂▀\u001b[0m▖      \u001b[7m   \u001b[0m      ▗\u001b[7m▀▂\u001b[0m▀\u001b[7m▆\u001b[0m ▂\u001b[7m▀ \u001b[0m▌\u001b[0m\n \u001b[7m▆▅▂ \u001b[0m▆▃▁     ▁ \u001b[7m▊   \u001b[0m▎ ▁     ▁▃▅\u001b[7m ▂\u001b[0m▀\u001b[7m▆\u001b[0m \u001b[0m\n     \u001b[7m▆▃▁▔\u001b[0m ▂  ▀\u001b[7m▂▘   ▝▂\u001b[0m▀  ▂ \u001b[7m▔▁▃▅\u001b[0m     \u001b[0m\n          \u001b[7m▂ \u001b[0m▆▃▁▔\u001b[7m▅▃▅\u001b[0m▔▁▃▅\u001b[7m ▂\u001b[0m╸         \u001b[0m\n            \u001b[7m▆▃▁\u001b[0m▆\u001b[7m▀\u001b[0m▃\u001b[7m▀\u001b[0m▆\u001b[7m▁▃▅\u001b[0m            \u001b[0m\n               \u001b[7m▆▅▃\u001b[0m▀\u001b[7m▆\u001b[0m               \u001b[0m\n\u001b[?25h",
+    "padding": {
+      "top": 4,
+      "left": 2,
+      "right": 0
+    }
+  },
+  "display": {
+    "separator": "▌",
+    "key": {
+      "width": 18
+    },
+    "bar": {
+      "border": null,
+      "char": {
+        "elapsed": "█",
+        "total": "░"
+      },
+      "width": 35
+    }
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "format": "{#@196}╔════════════════════════════════════════════════════╗"
+    },
+    {
+      "type": "custom",
+      "format": "{#@196}║ {#@196}███████╗██╗████████╗██╗  ██╗  {#@244}IMPERIAL COMMAND     {#@196}║"
+    },
+    {
+      "type": "custom",
+      "format": "{#@196}║ {#@196}██╔════╝██║╚══██╔══╝██║  ██║  {#@244}HOLONET RELAY        {#@196}║"
+    },
+    {
+      "type": "custom",
+      "format": "{#@196}║ {#@196}███████╗██║   ██║   ███████║                       {#@196}║"
+    },
+    {
+      "type": "custom",
+      "format": "{#@196}║ {#@196}╚════██║██║   ██║   ██╔══██║  {#@88}CLASSIFIED           {#@196}║"
+    },
+    {
+      "type": "custom",
+      "format": "{#@196}║ {#@196}███████║██║   ██║   ██║  ██║  {#@88}ACCESS ONLY          {#@196}║"
+    },
+    {
+      "type": "custom",
+      "format": "{#@196}║ {#@196}╚══════╝╚═╝   ╚═╝   ╚═╝  ╚═╝                       {#@196}║"
+    },
+    {
+      "type": "custom",
+      "format": "{#@196}╚════════════════════════════════════════════════════╝"
+    },
+    {
+      "type": "custom",
+      "format": "{#@196}╔══●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━●══╗"
+    },
+    {
+      "type": "custom",
+      "format": "{#@196}║ {#@244}ISD-01{#@196} ●{#@88}───{#@196}● IMPERIAL HOLONET NETWORK ●{#@88}───{#@196}● {#@244}ISD-02{#@196} ║"
+    },
+    {
+      "type": "custom",
+      "format": "{#@196}╚══●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━●══╝"
+    },
+    {
+      "type": "custom",
+      "format": "{#@196}▰{#@88}▰{#@196}▰{#@88}▰{#@196} SECTOR LINE {#@88}▰{#@196}▰{#@88}▰{#@196}▰ {#@244}[{#@231}TERMINAL DATA{#@244}]"
+    },
+    {
+      "type": "os",
+      "key": "{#@231}│ OS          "
+    },
+    {
+      "type": "kernel",
+      "key": "{#@231}│ KERNEL      "
+    },
+    {
+      "type": "uptime",
+      "key": "{#@231}│ UPTIME      "
+    },
+    {
+      "type": "custom",
+      "format": "{#@196}▰{#@88}▰{#@196}▰{#@88}▰{#@196}▰ IMPERIAL {#@88}▰{#@196}▰{#@88}▰{#@196}▰{#@88}▰ {#@196}[{#@231}OFFICER{#@196}] {#@244}CHESHIRE"
+    },
+    {
+      "type": "users",
+      "key": "{#@231}│ RANK        ",
+      "format": "{name}, since {login-time}",
+      "myselfOnly": true
+    },
+    {
+      "type": "localip",
+      "key": "{#@231}│ SECTOR-NET  ",
+      "format": "{ipv4}"
+    },
+    {
+      "type": "custom",
+      "format": "{#@196}▰{#@88}▰{#@196}▰{#@88}▰{#@196}▰ ALERT {#@88}▰{#@196}▰{#@88}▰{#@196}▰{#@88}▰ {#@231}[{#@196}EXECUTOR{#@231}] {#@244}CORE STATUS"
+    },
+    {
+      "type": "cpu",
+      "key": "{#@231}│ HYPERDRIVE  ",
+      "format": "{name}"
+    },
+    {
+      "type": "cpu",
+      "key": "{#@231}│ THREAD-COUNT",
+      "format": "{cores-physical}C / {cores-logical}T"
+    },
+    {
+      "type": "custom",
+      "format": "{#@196}▰{#@88}▰{#@196}▰{#@88}▰{#@196} CAUTION {#@88}▰{#@196}▰{#@88}▰{#@196}▰ {#@231}[{#@244}SHIELD{#@231}] {#@88}[{#@244}DEFLECTOR{#@88}]"
+    },
+    {
+      "type": "memory",
+      "key": "{#@88}│ SHIELD-LVL  ",
+      "format": "{used} / {total} (RAM)"
+    },
+    {
+      "type": "memory",
+      "key": "{#@88}│ DEFLECTOR   ",
+      "percent": {
+        "type": [
+          "bar",
+          "hide-others"
+        ]
+      }
+    },
+    {
+      "type": "disk",
+      "folders": "/",
+      "key": "{#@88}│ CARGO-BAY   ",
+      "format": "{size-used} / {size-total} (DISK)"
+    },
+    {
+      "type": "disk",
+      "folders": "/",
+      "key": "{#@88}│ CAPACITY    ",
+      "percent": {
+        "type": [
+          "bar",
+          "hide-others"
+        ]
+      }
+    },
+    {
+      "type": "custom",
+      "format": "{#@196}╔════════════════════════════════════════════════════╗"
+    },
+    {
+      "type": "custom",
+      "format": "{#@196}║   {#@244}[SYSTEMS NOMINAL] {#@196}HOLONET: {#@244}ONLINE {#@196}STATUS: {#@244}OK {#@196}    ║"
+    },
+    {
+      "type": "custom",
+      "format": "{#@196}╚════════════════════════════════════════════════════╝"
+    },
+    {
+      "type": "custom",
+      "format": "{#@244}          COMMANDER CHESHIRE - AWAITING ORDERS"
+    },
+    {
+      "type": "custom",
+      "format": "{#@196}              The Force will set you free."
+    }
+  ]
+}

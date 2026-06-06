@@ -1,0 +1,11 @@
+[Unit]
+Description=RClone OneDrive Mount
+After=network-online.target
+
+[Service]
+ExecStart=rclone mount onedrive: %h/OneDrive --vfs-cache-mode writes --vfs-cache-max-size 5G
+ExecStop=fusermount -u %h/OneDrive
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

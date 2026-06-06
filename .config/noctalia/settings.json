@@ -6,17 +6,17 @@
         "clipboardWrapText": true,
         "customLaunchPrefix": "",
         "customLaunchPrefixEnabled": false,
-        "density": "compact",
+        "density": "default",
         "enableClipPreview": true,
         "enableClipboardChips": true,
         "enableClipboardHistory": true,
         "enableClipboardSmartIcons": true,
-        "enableSessionSearch": false,
-        "enableSettingsSearch": false,
-        "enableWindowsSearch": false,
-        "iconMode": "native",
+        "enableSessionSearch": true,
+        "enableSettingsSearch": true,
+        "enableWindowsSearch": true,
+        "iconMode": "tabler",
         "ignoreMouseInput": false,
-        "overviewLayer": true,
+        "overviewLayer": false,
         "pinnedApps": [
         ],
         "position": "center",
@@ -24,7 +24,7 @@
         "showCategories": true,
         "showIconBackground": false,
         "sortByMostUsed": false,
-        "terminalCommand": "ghostty -e",
+        "terminalCommand": "foot",
         "viewMode": "grid"
     },
     "audio": {
@@ -43,7 +43,7 @@
         "autoHideDelay": 500,
         "autoShowDelay": 150,
         "backgroundOpacity": 0.55,
-        "barType": "floating",
+        "barType": "simple",
         "capsuleColorKey": "none",
         "capsuleOpacity": 1,
         "contentPadding": 2,
@@ -86,7 +86,7 @@
                     "colorizeIcons": false,
                     "hideMode": "hidden",
                     "id": "ActiveWindow",
-                    "maxWidth": 300,
+                    "maxWidth": 1000,
                     "scrollingMode": "always",
                     "showIcon": false,
                     "showText": true,
@@ -176,43 +176,26 @@
                     "unreadBadgeColor": "primary"
                 },
                 {
+                    "displayMode": "onhover",
+                    "iconColor": "none",
+                    "id": "Network",
+                    "textColor": "none"
+                },
+                {
+                    "displayMode": "onhover",
+                    "iconColor": "none",
+                    "id": "Volume",
+                    "middleClickCommand": "pwvucontrol || pavucontrol",
+                    "textColor": "none"
+                },
+                {
                     "deviceNativePath": "__default__",
-                    "displayMode": "graphic",
+                    "displayMode": "icon-hover",
                     "hideIfIdle": false,
                     "hideIfNotDetected": true,
                     "id": "Battery",
                     "showNoctaliaPerformance": false,
                     "showPowerProfiles": true
-                },
-                {
-                    "defaultSettings": {
-                        "audioCodec": "opus",
-                        "audioSource": "default_output",
-                        "colorRange": "limited",
-                        "copyToClipboard": false,
-                        "customReplayDuration": "30",
-                        "directory": "",
-                        "filenamePattern": "recording_yyyyMMdd_HHmmss",
-                        "frameRate": "60",
-                        "hideInactive": false,
-                        "iconColor": "none",
-                        "quality": "very_high",
-                        "replayDuration": "30",
-                        "replayEnabled": false,
-                        "replayStorage": "ram",
-                        "resolution": "original",
-                        "restorePortalSession": false,
-                        "showCursor": true,
-                        "videoCodec": "h264",
-                        "videoSource": "portal"
-                    },
-                    "id": "plugin:screen-recorder"
-                },
-                {
-                    "defaultSettings": {
-                        "iconColor": "none"
-                    },
-                    "id": "plugin:color-scheme-creator"
                 },
                 {
                     "clockColor": "none",
@@ -251,14 +234,14 @@
     },
     "colorSchemes": {
         "darkMode": true,
-        "generationMethod": "tonal-spot",
+        "generationMethod": "faithful",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "SWJFO Second Sister",
+        "predefinedScheme": "Gruvbox",
         "schedulingMode": "off",
         "syncGsettings": true,
-        "useWallpaperColors": false
+        "useWallpaperColors": true
     },
     "controlCenter": {
         "cards": [
@@ -370,19 +353,19 @@
         "allowPanelsOnScreenWithoutBar": true,
         "allowPasswordWithFprintd": false,
         "animationDisabled": false,
-        "animationSpeed": 1.5,
+        "animationSpeed": 2,
         "autoStartAuth": false,
         "avatarImage": "/home/lecaseus/.face.jpg",
         "boxRadiusRatio": 1,
         "clockFormat": "hh\\nmm",
         "clockStyle": "digital",
         "compactLockScreen": true,
-        "dimmerOpacity": 0.1,
+        "dimmerOpacity": 0.2,
         "enableBlurBehind": true,
         "enableLockScreenCountdown": true,
         "enableLockScreenMediaControls": true,
         "enableShadows": true,
-        "forceBlackScreenCorners": true,
+        "forceBlackScreenCorners": false,
         "iRadiusRatio": 1,
         "keybinds": {
             "keyDown": [
@@ -410,7 +393,7 @@
         },
         "language": "",
         "lockOnSuspend": true,
-        "lockScreenAnimations": true,
+        "lockScreenAnimations": false,
         "lockScreenBlur": 1,
         "lockScreenCountdownDuration": 10000,
         "lockScreenMonitors": [
@@ -425,9 +408,9 @@
         "shadowOffsetX": 2,
         "shadowOffsetY": 3,
         "showChangelogOnStartup": true,
-        "showHibernateOnLockScreen": false,
+        "showHibernateOnLockScreen": true,
         "showScreenCorners": false,
-        "showSessionButtonsOnLockScreen": false,
+        "showSessionButtonsOnLockScreen": true,
         "smoothScrollEnabled": true,
         "telemetryEnabled": true
     },
@@ -486,14 +469,14 @@
     "nightLight": {
         "autoSchedule": false,
         "dayTemp": "6500",
-        "enabled": true,
-        "forced": true,
+        "enabled": false,
+        "forced": false,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "nightTemp": "6000"
     },
     "noctaliaPerformance": {
-        "disableDesktopWidgets": false,
+        "disableDesktopWidgets": true,
         "disableWallpaper": false
     },
     "notifications": {
@@ -649,10 +632,6 @@
             },
             {
                 "enabled": true,
-                "id": "ghostty"
-            },
-            {
-                "enabled": true,
                 "id": "helix"
             },
             {
@@ -673,22 +652,30 @@
             },
             {
                 "enabled": true,
-                "id": "yazi"
-            },
-            {
-                "enabled": true,
                 "id": "zenBrowser"
             },
             {
                 "enabled": true,
                 "id": "starship"
+            },
+            {
+                "enabled": true,
+                "id": "foot"
+            },
+            {
+                "enabled": true,
+                "id": "cava"
+            },
+            {
+                "enabled": true,
+                "id": "yazi"
             }
         ],
         "enableUserTheming": false
     },
     "ui": {
         "boxBorderEnabled": false,
-        "fontDefault": "Fira Sans",
+        "fontDefault": "Inter 18pt Medium",
         "fontDefaultScale": 1,
         "fontFixed": "FiraCode Nerd Font Mono",
         "fontFixedScale": 1,
@@ -698,7 +685,7 @@
         "settingsPanelMode": "attached",
         "settingsPanelSideBarCardStyle": false,
         "tooltipsEnabled": true,
-        "translucentWidgets": true
+        "translucentWidgets": false
     },
     "wallpaper": {
         "automationEnabled": false,
@@ -706,20 +693,6 @@
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
-            {
-                "appearance": "dark",
-                "colorScheme": "Ayu",
-                "darkMode": true,
-                "generationMethod": "muted",
-                "paletteColors": [
-                    "#dcdadd",
-                    "#dddadd",
-                    "#dddadc",
-                    "#fd4663"
-                ],
-                "path": "/home/lecaseus/Pictures/Wallpapers/Star Wars -- Darth Vader.png",
-                "useWallpaperColors": true
-            }
         ],
         "fillColor": "#000000",
         "fillMode": "crop",
